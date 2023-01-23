@@ -22,7 +22,8 @@ printf "%s" "<html>
     <body>
         Holberton School
     </body>
-</html>\n" > /data/web_static/releases/test/index.html
+</html>
+" > /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
@@ -34,7 +35,7 @@ printf "%s" "server {
     root   /var/www/html;
     index  index.html index.htm;
 
-    location /hbtn_static {
+    location /hbnb_static {
       alias /data/web_static/current;
       index index.html index.htm;
     }
