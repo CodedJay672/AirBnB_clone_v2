@@ -18,6 +18,8 @@ fi
 mkdir -p /data/web_static/releases/test/
 mkdir -p /data/web_static/shared/
 echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# create a test HTML page
 printf "%s" "<!DOCTYPE html>
 <html>
     <head>
@@ -27,26 +29,31 @@ printf "%s" "<!DOCTYPE html>
         <p>This is a test file</p>
     </body>
 </html>" > /data/web_static/releases/test/index.html
-ln -s /data/web_static/current /data/web_static/releases/test/
+
+ln -sf /data/web_static/current /data/web_static/releases/test/
 chown -R ubuntu:ubuntu /data/
-echo "location /hbtn_static {
-      alias /data/web_static/current/;
-}" >> /etc/nginx/sites-available/default
+
 printf "%s" "server {
     listen 80 default_server;
     listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
     root   /var/www/html;
     index  index.html index.htm;
+
+    location /hbtn_static {
+      alias /data/web_static/current;
+      index index.html index.htm;
+    }
+
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
+
     error_page 404 /404.html;
     location /404 {
       root /var/www/html;
       internal;
     }
-    location /hbtn_static {
-      alias /data/web_static/current/
-    }
 }" > /etc/nginx/sites-available/default
+
+service nginx restart
