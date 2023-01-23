@@ -8,11 +8,7 @@
 
 # update apt-get
 apt-get update
-
-# install nginx if it is not already installed
-if [[ ! ("$(sudo which nginx)") ]]; then
-	apt-get install -y nginx
-fi
+apt-get install -y nginx
 
 # mmake necessary folders and config changes
 mkdir -p /data/web_static/releases/test/
