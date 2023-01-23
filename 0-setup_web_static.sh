@@ -16,13 +16,11 @@ mkdir -p /data/web_static/shared/
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 
 # create a test HTML page
-printf "%s" "<!DOCTYPE html>
-<html>
+printf "%s" "<html>
     <head>
-        <title>Test HTML document</title>
     </head>
     <body>
-        <p>This is a test file</p>
+        Holberton School
     </body>
 </html>" > /data/web_static/releases/test/index.html
 
