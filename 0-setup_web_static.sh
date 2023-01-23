@@ -22,7 +22,7 @@ printf "%s" "<html>
     <body>
         Holberton School
     </body>
-</html>" > /data/web_static/releases/test/index.html
+</html>\n" > /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
