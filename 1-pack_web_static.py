@@ -10,7 +10,7 @@ def do_pack():
     """python function that implements archives files
     in a directory using the fabric api"""
 
-    date = datetime.utcnow()
+    date = datetime.now()
     tarFile = "versions/web_static_{}{}{}{}{}.tgz".format(
                                                           date.year,
                                                           date.month,
