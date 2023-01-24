@@ -5,7 +5,11 @@ import os.path
 from datetime import datetime
 from fabric.api import local
 
+
 def do_pack():
+    """python function that implements archives files
+    in a directory using the fabric api"""
+
     date = datetime.utcnow()
     tarFile = "versions/web_static_{}{}{}{}{}.tgz".format(
                                                           date.year,
