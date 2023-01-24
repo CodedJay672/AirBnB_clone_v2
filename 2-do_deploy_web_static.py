@@ -12,7 +12,7 @@ env.hosts = ["52.91.132.254", "100.25.203.14"]
 def do_deploy(archive_path):
     """function that uploads an archive file to a web server"""
 
-    if os.path.isfile("archive_path") is False:
+    if os.path.isfile(archive_path) is False:
         return False
     fpath = archive_path.split("/")[-1]
     fname = fpath.split(".")[0]
