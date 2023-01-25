@@ -67,6 +67,7 @@ def do_deploy(archive_path):
         return False
     return True
 
+
 def deploy():
     """function that deploys web_static using python functions"""
 
